@@ -31,3 +31,17 @@
     name: docker
     enabled: yes
     state: started
+
+- name: Add users to docker group
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  with_items:  "{{ add_docker_users }} "
+
+- name: Remove users from docker group
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: yes
+  with_items:  "{{ remove_docker_users }} "
