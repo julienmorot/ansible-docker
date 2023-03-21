@@ -24,6 +24,7 @@
       - curl
       - software-properties-common
       - docker-ce
+      - docker-compose
     state: latest
 
 - name: Enable service Docker
