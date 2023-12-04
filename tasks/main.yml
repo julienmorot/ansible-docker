@@ -11,13 +11,13 @@
     state: present
 
 - name: Remove Distribution's docker package
-  ansible.builtin.package:
+  ansible.builtin.apt:
     name:
       - docker.io
     state: absent
 
 - name: Install docker packages 
-  ansible.builtin.package:
+  ansible.builtin.apt:
     name:
       - apt-transport-https
       - ca-certificates
@@ -26,6 +26,7 @@
       - docker-ce
       - docker-compose
     state: latest
+    update_cache: yes
 
 - name: Enable service Docker
   ansible.builtin.service:
